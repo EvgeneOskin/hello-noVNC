@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  app:
+    image: selenium/standalone-chrome-debug
+  websockify:
+    command: 8080 app:5900
+    image: siboulet/websockify
+    ports:
+      - 8080:8080
+  novnc:
+    build: 'no-vnc'
+    ports:
+      - 8000:80
